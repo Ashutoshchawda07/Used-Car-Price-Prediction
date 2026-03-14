@@ -6,3 +6,6 @@ ydata-profiling
 xgboost
 joblib
 setuptools
+fastapi
+uvicorn
+pydantic
