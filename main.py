@@ -23,6 +23,16 @@ class CarData(BaseModel):
     liters: Annotated[float, Field(...,description="Liters (e.g., 2.0, 3.5)",gt=0)]
     accident: Annotated[str, Field(...,description="Accident (e.g., Yes, No)")]
     clean_title: Annotated[str, Field(...,description="Clean Title (e.g., Yes, No)")]
+@app.get("/")
+def home():
+    return {"message": "Welcome to the Used Car Price Prediction System! Use the /predict endpoint to get a price estimate."}
+
+@app.get("/health")
+def health_check():
+    return {"status": "OK",
+            "message": "The model is loaded and the API is running smoothly!"
+            }
+            # Model Version
 
 @app.post("/predict")
 def predict_price(item: CarData):
